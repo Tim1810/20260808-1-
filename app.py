@@ -361,7 +361,7 @@ def main():
     st.set_page_config(page_title="PVOG-Analysetool für AnnexPerso", page_icon="📄")
     st.title("PVOG-Analysetool für AnnexPerso")
     st.write("12-stelligen ARS eingeben. Anschließend kann das Ergebnis als Excel-Datei heruntergeladen werden.")
-    ars = st.text_input("ARS:", max_chars=12, placeholder="z. B. 010010000000").strip()
+    ars = st.text_input("ARS:", max_chars=12, placeholder="z. B. 032410001001").strip()
 
     if st.button("Analyse starten", type="primary"):
         if not re.fullmatch(r"\d{12}", ars):
