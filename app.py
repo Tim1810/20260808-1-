@@ -358,17 +358,17 @@ def create_excel_file(ars):
 
 
 def main():
-    st.set_page_config(page_title="PVOG Tool Annex Perso", page_icon="📄")
-    st.title("PVOG Tool Annex Perso")
-    st.write("Geben Sie eine 12-stellige ARS-Nummer ein. Anschließend können Sie das Ergebnis als Excel-Datei herunterladen.")
-    ars = st.text_input("ARS-Nummer", max_chars=12, placeholder="z. B. 010010000000").strip()
+    st.set_page_config(page_title="PVOG-Analysetool für AnnexPerso", page_icon="📄")
+    st.title("PVOG-Analysetool für AnnexPerso")
+    st.write("12-stelligen ARS eingeben. Anschließend kann das Ergebnis als Excel-Datei heruntergeladen werden.")
+    ars = st.text_input("ARS:", max_chars=12, placeholder="z. B. 010010000000").strip()
 
     if st.button("Analyse starten", type="primary"):
         if not re.fullmatch(r"\d{12}", ars):
-            st.error("Bitte geben Sie eine 12-stellige ARS-Nummer ein.")
+            st.error("Bitte 12-stelligen ARS eingeben.")
             return
         try:
-            with st.spinner("PVOG-Daten werden geprüft. Dies kann einen Moment dauern …"):
+            with st.spinner("PVOG-Daten werden abgerufen. Dies kann einen Moment dauern …"):
                 excel_data = create_excel_file(ars)
             st.success("Die Analyse wurde abgeschlossen.")
             st.download_button(
